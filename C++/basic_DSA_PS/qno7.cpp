@@ -17,7 +17,7 @@
 using namespace std;
 
 int main(){
-    int n=5;
+    int n;
     cin>>n;
 
     int i = 1;
