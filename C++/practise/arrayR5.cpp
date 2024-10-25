@@ -1,6 +1,9 @@
 //find 2nd max
 #include<iostream>
 using namespace std;
+void update(int arr[]){
+    arr = 0;
+}
 
 int main(){
     int arr[6]={1,2,3,5,4,6};
@@ -12,7 +15,9 @@ int main(){
             arr[i]=max;
         } 
     }
+    update(&arr[i]);
     cout<<arr[i]; 
+
     /*int i=0;
     while(i<6){
         if(max<arr[i]){
