@@ -1,2 +1,1 @@
-if(arr[0] != k)
-    //     return false;
+(left == -1) ? mid : left;
