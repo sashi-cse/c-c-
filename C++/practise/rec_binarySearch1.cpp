@@ -9,7 +9,11 @@ int firstOccurrence(int arr[], int s, int e, int k) {
     int mid = s + (e - s) / 2;
     if (arr[mid] == k) {
         int left = firstOccurrence(arr, s, mid - 1, k);
-        return (left == -1) ? mid : left;
+        //return (left == -1) ? mid : left;
+        if(left == -1)
+            return mid;
+        else
+            return left;
     }
     else if (arr[mid] > k) {
         return firstOccurrence(arr, s, mid - 1, k);
