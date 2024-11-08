@@ -43,6 +43,9 @@ void merge(int *arr, int s, int e){
     while(index2 < len2){
         arr[mainArrayIndex++] = second[index2++];
     }
+
+    delete []first;
+    delete []second;
 }
 
 void mergeSort(int *arr, int s, int e){
@@ -61,7 +64,7 @@ void mergeSort(int *arr, int s, int e){
     mergeSort(arr, mid+1, e);
 
     //merge
-    merge(arr, s, e); 
+    merge(arr, s, e);  
 }
 
 int main(){
