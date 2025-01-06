@@ -1,4 +1,5 @@
 #include<iostream>
+#include <cstring>
 using namespace std;
 
 class Hero {
@@ -8,10 +9,13 @@ class Hero {
     int health;
 
     public:
+    char *name;
     char level;
+    static int timeToComplete;
 
     Hero(){
-        cout << "Consturctor Called" << endl;
+        cout << "Simple Consturctor Called" << endl;
+        name = new char[100];
     }
 
     //Parameterised constructor
@@ -26,14 +30,22 @@ class Hero {
 
     //copy constructor
     Hero(Hero& temp) {
+
+        char *ch = new char[strlen(temp.name) + 1];
+        strcpy(ch, temp.name);
+        this->name = ch;
+
         cout << "Copy constructor called " << endl;
         this->health = temp.health;
         this->level = temp.level;
     }
 
     void print(){
-        cout << "health " << this->health << endl;
-        cout << "level " << this->level << endl;
+        cout << endl;
+        cout << "[ Name: " << this->name<< " ,";
+        cout << "health: " << this->health << " ,";
+        cout << "level: " << this->level << " ]";
+        cout << endl << endl;
     }
 
     int getHealth(){
@@ -52,19 +64,82 @@ class Hero {
         level = ch;
     }
 
+    void setName(char name[]){
+        strcpy(this->name, name);
+    }
+
+    static int random(){
+        return timeToComplete ;
+    }
+    
+    //Destructor
+    ~Hero(){
+        cout << "Destructor bhai called" << endl;
+    }
+
 };
+
+int Hero::timeToComplete = 5;
 
 int main(){
 
-    Hero S(70,'C');
-    S.print();
+    //cout << Hero::timeToComplete << endl;
+    cout << Hero::random() << endl;
+
+    // Hero a;
+
+    // cout << a.timeToComplete << endl;
+     
 
 
-    //Copy Constructor
-    Hero R(S);
-    R.print();
+    // Hero b;
+    // b.timeToComplete = 10;
+    // cout << a.timeToComplete << endl;
+    // cout << b.timeToComplete << endl;
 
 
+
+
+
+
+
+    
+//     //Static
+//     Hero a;
+
+//     //Dynamic
+//     Hero *b = new Hero();
+//     //manually destructor call
+//     delete b;
+
+
+
+
+   // Hero hero1;
+
+    // hero1.setHealth(12);
+    // hero1.setLevel('D');
+    // char name[7] = "Sashi";
+    // hero1.setName(name);
+
+    // //hero1.print();
+
+    // //use default copy constructor
+
+    // Hero hero2(hero1);
+    // //hero2.print();
+    // //Hero hero2 = hero1;
+
+    // hero1.name[0] = 'J';
+    // hero1.print();
+
+    // hero2.print();
+
+    // hero1 = hero2;
+
+    // hero1.print();
+
+    // hero2.print();
 
 
 
@@ -128,3 +203,14 @@ int main(){
 
     return 0; 
 }
+
+
+
+
+
+
+
+
+
+
+ 
