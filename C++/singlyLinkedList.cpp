@@ -43,6 +43,11 @@ void insertAtTail(Node* &tail, int d){
 }
 
 void print(Node* &head){
+
+    if(head == NULL){
+        cout << "List is empty " << endl;
+        return;
+    }
     Node* temp = head;
 
     while(temp != NULL){
@@ -109,36 +114,63 @@ void deleteNode(int position, Node* &head){
     }
 }
 
+bool isCircularList(Node* head) {
+    //empty list
+    if(head == NULL) {
+        return true;
+    }
+
+    Node* temp = head -> next;
+    while(temp != NULL && temp != head) {
+        temp = temp -> next;
+    }
+
+    if(temp == head) {
+        return true;
+    }
+
+    return false;
+}
+
 int main(){
  
     //created a new node
-    Node* node1 = new Node(10);
+    //Node* node1 = new Node(10);
     // cout << node1 -> data << endl;
     // cout << node1 -> next << endl;
 
     //head pointed to node1
-    Node* head = node1;
-    Node* tail = node1;
-    print(head);
+    Node* head = NULL;
+    Node* tail = NULL;
+    //print(head);
 
-    insertAtTail(tail, 12);
+    //insertAtTail(tail, 12);
 
-    print(head);
+    //print(head);
 
-    insertAtTail(tail, 15);
-    print(head);
+    //insertAtTail(tail, 15);
+    //print(head);
 
-    insertAtPosition(tail,head, 4, 22);
-    print(head);
+    //insertAtPosition(tail,head, 4, 22);
+    //print(head);
 
-    cout << "head " << head -> data << endl;
-    cout << "Tail " << tail -> data << endl;
+    // cout << "head " << head -> data << endl;
+    // cout << "Tail " << tail -> data << endl;
 
-    deleteNode(4, head);
-    print(head);
+    //deleteNode(4, head);
+    //print(head);
 
-    cout << "head " << head -> data << endl;
-    cout << "Tail " << tail -> data << endl;
+    // cout << "head " << head -> data << endl;
+    // cout << "Tail " << tail -> data << endl;
+     print(head);
+
+    if(isCircularList(head)){
+        cout << " Linked List is Circular in nature" << endl;
+    }
+    else{
+        cout << " Linked List is not Circular " << endl;
+    }
+
 
     return 0;
 }

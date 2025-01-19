@@ -1,4 +1,2 @@
- // if(this->next != NULL) {
-        //     delete next;
-        //     this->next = NULL;
-        // }
+insertNode(tail, 5, 3);
+    // print(tail);
